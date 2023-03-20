@@ -14,6 +14,12 @@ describe("length", () => {
   });
 
   it("Must return 0 for an empty list", () => {
+    linkedList.delete("a");
+    linkedList.delete("b");
+    linkedList.delete("c");
+    linkedList.delete("d");
+    linkedList.delete("e");
+    linkedList.delete("f");
     expect(linkedList.length()).toEqual(0);
   });
 
@@ -28,10 +34,10 @@ describe("length", () => {
       expect(linkedList.get(6)).toBe("g");
     });
 
-    it("must not append a list with incorrect data type", () => {
+    it("Must not append a list with incorrect data type", () => {
       const example1 = () => linkedList.append(1);
       const example2 = () => linkedList.append("123");
-      const example3 = () => llinkedList.append(false);
+      const example3 = () => linkedList.append(false);
       const example4 = () => linkedList.append(undefined);
       const example5 = () => linkedList.append(null);
       const example6 = () => linkedList.append(true);
@@ -54,7 +60,7 @@ describe("length", () => {
       expect(example6).toThrow(
         "Error. Wrong input data type, expected type char."
       );
-      expect(linkedList.length()).toBe(7);
+      expect(linkedList.length()).toBe(6);
     });
   });
 
@@ -62,10 +68,11 @@ describe("length", () => {
     it("Must inserting an element at any position in the list", () => {
       linkedList.insert("h", 1);
       expect(linkedList.get(1)).toBe("h");
-      expect(linkedList.get(2)).toBe("c");
-      expect(linkedList.get(3)).toBe("d");
-      expect(linkedList.get(4)).toBe("e");
-      expect(linkedList.get(5)).toBe("f");
+      expect(linkedList.get(2)).toBe("b");
+      expect(linkedList.get(3)).toBe("c");
+      expect(linkedList.get(4)).toBe("d");
+      expect(linkedList.get(5)).toBe("e");
+      expect(linkedList.get(6)).toBe("f");
     });
     it("Trow an error when invalid index", () => {
       const example1 = () => linkedList.insert("h", -1);
@@ -89,10 +96,10 @@ describe("length", () => {
       expect(linkedList.get(4)).toBe("f");
       expect(linkedList.length()).toBe(5);
     });
-    it("must not delete an element from the list with wrong index", () => {
+    it("Must not delete an element from the list with wrong index", () => {
       const example1 = () => linkedList.delete(-1);
       expect(example1).toThrow("Error. Wrong invalid index");
-      const example2 = () => linkedList.append(15);
+      const example2 = () => linkedList.delete(15);
       expect(example2).toThrow("Error. Wrong invalid index");
     });
   });
@@ -129,7 +136,7 @@ describe("length", () => {
     it("Must genetare an error if index is wrong", () => {
       const example1 = () => linkedList.get(-1);
       expect(example1).toThrow("Error. Wrong invalid index");
-      const example2 = () => linkedList.append(15);
+      const example2 = () => linkedList.get(15);
       expect(example2).toThrow("Error. Wrong invalid index");
     });
   });
@@ -149,14 +156,14 @@ describe("length", () => {
 
   describe("reverse", () => {
     it("Must reversed a list", () => {
-      const reverseLinkedList = linkedList.reverse();
-      expect(reverseLinkedList.get(5)).toBe("a");
-      expect(reverseLinkedList.get(4)).toBe("b");
-      expect(reverseLinkedList.get(3)).toBe("c");
-      expect(reverseLinkedList.get(2)).toBe("d");
-      expect(reverseLinkedList.get(1)).toBe("e");
-      expect(reverseLinkedList.get(0)).toBe("f");
-      expect(reverseLinkedList.length()).toBe(6);
+      linkedList.reverse();
+      expect(linkedList.get(5)).toBe("a");
+      expect(linkedList.get(4)).toBe("b");
+      expect(linkedList.get(3)).toBe("c");
+      expect(linkedList.get(2)).toBe("d");
+      expect(linkedList.get(1)).toBe("e");
+      expect(linkedList.get(0)).toBe("f");
+      expect(linkedList.length()).toBe(6);
     });
   });
 
@@ -195,22 +202,21 @@ describe("length", () => {
 
   describe("extend", () => {
     it("Must takes another list and adds all elements of the latter to the current list", () => {
-      const LinkedList2 = new LinkedList();
-      LinkedList2.append("g");
-      LinkedList2.append("h");
-      LinkedList2.append("i");
-      LinkedList.extend(LinkedList2);
-      expect(LinkedList.length()).toEqual(6);
-      expect(LinkedList.get(0)).toEqual("a");
-      expect(LinkedList.get(1)).toEqual("b");
-      expect(LinkedList.get(2)).toEqual("c");
-      expect(LinkedList.get(3)).toEqual("d");
-      expect(LinkedList.get(4)).toEqual("e");
-      expect(LinkedList.get(5)).toEqual("f");
-      expect(LinkedList.get(6)).toEqual("g");
-      expect(LinkedList.get(7)).toEqual("h");
-      expect(LinkedList.get(8)).toEqual("i");
-      expect(linkedList.length()).toBe(9);
+      const linkedList2 = new LinkedList();
+      linkedList2.append("g");
+      linkedList2.append("h");
+      linkedList2.append("i");
+      linkedList.extend(linkedList2);
+      expect(linkedList.length()).toEqual(9);
+      expect(linkedList.get(0)).toEqual("a");
+      expect(linkedList.get(1)).toEqual("b");
+      expect(linkedList.get(2)).toEqual("c");
+      expect(linkedList.get(3)).toEqual("d");
+      expect(linkedList.get(4)).toEqual("e");
+      expect(linkedList.get(5)).toEqual("f");
+      expect(linkedList.get(6)).toEqual("g");
+      expect(linkedList.get(7)).toEqual("h");
+      expect(linkedList.get(8)).toEqual("i");
     });
   });
 });
