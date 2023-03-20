@@ -75,3 +75,5 @@ class LinkedList {
     return this.arr;
   }
 }
+
+module.export = LinkedList;
