@@ -35,7 +35,7 @@ $ npm test
 
 ## Reference to the commit the failed CI tests
 
-[Failed commit](https://github.com/AlinaDubchak/Development-methodologies-Lab-2/commit/c8de5eccc88e28fc8948505058ba7dc6be6890a2)
+[Failed commit](https://github.com/AlinaDubchak/Development-methodologies-Lab-2/actions/runs/4466279997)
 
 ## Conclusion
 
