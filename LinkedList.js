@@ -177,7 +177,7 @@ class CircularLinkedList {
     this.size = 0;
   };
 
-  extend(arr) {
+  extend = (arr) => {
     let current = arr.head;
     let i = 0;
     while (i < arr.size) {
@@ -185,7 +185,7 @@ class CircularLinkedList {
       current = current.next;
       i++;
     }
-  }
+  };
 }
 
 module.exports = CircularLinkedList;
